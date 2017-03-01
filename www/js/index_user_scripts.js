@@ -40,12 +40,7 @@
     });
 
         /* button  Beállítások */
-    $(document).on("click", ".uib_w_16", function(evt)
-    {
-         /*global activate_subpage */
-         activate_subpage("#settings");
-         return false;
-    });
+
 
         /* button  #buttonExit */
     $(document).on("click", "#buttonExit", function(evt)
@@ -90,6 +85,20 @@
     {
         /* your code goes here */
 
+         return false;
+    });
+
+        /* button  #tabSettings */
+
+
+        /* button  #tabSettings */
+
+
+        /* button  #tabSettings */
+    $(document).on("click", "#tabSettings", function(evt)
+    {
+         /*global activate_subpage */
+         activate_subpage("#settings");
          return false;
     });
 

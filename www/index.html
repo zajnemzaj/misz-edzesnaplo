@@ -3,6 +3,38 @@
     <!--
   * Please see the included README.md file for license terms and conditions.
   -->
+    <!--
+  * The "meta viewport" tag (below) helps your app size appropriately to a device's ideal viewport.
+  * Note that Windows device viewports work better when initialized using the @viewport CSS rule.
+  * For a quick overview of "meta viewport" and @viewport, see this article:
+  *   http://webdesign.tutsplus.com/tutorials/htmlcss-tutorials/quick-tip-dont-forget-the-viewport-meta-tag
+  * To see how it works, try your app on a real device with and without a "meta viewport" tag.
+  * Additional useful references include:
+  *   http://www.quirksmode.org/mobile/viewports.html
+  *   http://www.quirksmode.org/mobile/metaviewport/devices.html
+  *   https://developer.apple.com/library/safari/documentation/AppleApplications/Reference/SafariHTMLRef/Articles/MetaTags.html
+-->
+    <!-- <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1"> -->
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes, minimum-scale=1, maximum-scale=2"> -->
+    <!-- IMPORTANT: Do not include a weinre script tag as part of your release builds! -->
+    <!-- Place your remote debugging (weinre) script URL from the Test tab here, if it does not work below -->
+    <!-- <script src="http://debug-software.intel.com/target/target-script-min.js#insertabiglongfunkynumberfromthexdkstesttab"></script> -->
+    <!-- Recommended location for your JavaScript libraries -->
+    <!-- These library references (below) are just examples to give you the general idea... -->
+    <!-- <script src="lib/mc/hammer.js"></script> -->
+    <!-- <script src="lib/ft/fastclick.js"></script> -->
+    <!--
+  * cordova.js is a phantom lib for "Cordova HTML5 web app," it does nothing in a "Standard HTML5 web app"
+  * Seeing a "Failed to load resource: net::ERR_FILE_NOT_FOUND" message caused by this "cordova.js" script?
+  * The cordova.js script is required if you convert your "Standard HTML5" project into a "Cordova" project.
+  * You can safely ignore the error or comment out this line if you will not be developing a Cordova app.
+-->
+    <!-- for your event code, see README and file comments for details -->
+    <!-- for your init code, see README and file comments for details -->
+    <!-- normalizes device and document ready events, see file for details -->
+    <!-- IMPORTANT: Do not include a weinre script tag as part of your release builds! -->
+    <!-- Place your remote debugging (weinre) script URL from the Test tab here, if it does not work above -->
+    <!-- <script src="http://debug-software.intel.com/target/target-script-min.js#insertabiglongfunkynumberfromthexdkstesttab"></script> -->
 
     <head>
         <link rel="stylesheet" type="text/css" href="media_button_bar/css/media_button_bar.css">
@@ -137,6 +169,9 @@
         </script>
         <script type="application/javascript" src="xdk/appdesigner/js/rest-of-space.js"></script>
     </head>
+    <!-- IMPORTANT: Do not include a weinre script tag as part of your release builds! -->
+    <!-- Place your remote debugging (weinre) script URL from the Test tab here, if it does not work above -->
+    <!-- <script src="http://debug-software.intel.com/target/target-script-min.js#insertabiglongfunkynumberfromthexdkstesttab"></script> -->
 
     <body>
         <!-- IMPORTANT: Do not include a weinre script tag as part of your release builds! -->
@@ -198,18 +233,23 @@
                         <div class="text-container"><pre><strong>Lövés végrehajtás:</strong></pre>
                         </div>
                     </div>
-                    <div class="table-thing widget uib_w_30 d-margins align-label" data-uib="twitter%20bootstrap/input" data-ver="1">
-                        <label class="narrow-control label-inline" for="inputGood">Jó</label>
-                        <input class="wide-control form-control default" type="text" id="inputGood">
+                    <div class="card_grid widget uib_w_51 wrapping-col d-margins flex-basis-51" data-uib="layout/card_grid" data-ver="0">
+                        <div class="widget widget-container content-area horizontal-col uib-card cpad-0 uib_w_52 section-dimension-52" data-uib="layout/card" data-ver="0">
+                            <div class="table-thing widget uib_w_30 d-margins" data-uib="twitter%20bootstrap/input" data-ver="1">
+                                <label class="narrow-control label-top-left" for="inputGood">Jó</label>
+                                <input class="wide-control form-control default" type="text" id="inputGood">
+                            </div>
+                            <div class="table-thing widget uib_w_33 d-margins align-label" data-uib="twitter%20bootstrap/input" data-ver="1">
+                                <label class="narrow-control label-top-left" for="inputBad">Rossz</label>
+                                <input class="wide-control form-control default" type="text" id="inputBad">
+                            </div>
+                            <div class="table-thing widget uib_w_32 d-margins" data-uib="twitter%20bootstrap/input" data-ver="1">
+                                <label class="narrow-control label-top-left" for="inputMiddle">Közepes</label>
+                                <input class="wide-control form-control default" type="text" id="inputMiddle">
+                            </div>
+                        </div>
                     </div>
-                    <div class="table-thing widget uib_w_32 d-margins align-label" data-uib="twitter%20bootstrap/input" data-ver="1">
-                        <label class="narrow-control label-inline" for="inputMiddle">Közepes</label>
-                        <input class="wide-control form-control default" type="text" id="inputMiddle">
-                    </div>
-                    <div class="table-thing widget uib_w_33 d-margins align-label" data-uib="twitter%20bootstrap/input" data-ver="1">
-                        <label class="narrow-control label-inline" for="inputBad">Rossz</label>
-                        <input class="wide-control form-control default" type="text" id="inputBad">
-                    </div>
+
                     <div class="tarea widget uib_w_34 d-margins" data-uib="media/text" data-ver="0" name="uib_w_34">
                         <div class="widget-container left-receptacle"></div>
                         <div class="widget-container right-receptacle"></div>
@@ -299,6 +339,7 @@
                         </div>
                     </div>
                 </div>
+
             </div>
             <div class="modal outer-element uib_w_29" data-uib="twitter%20bootstrap/modal" data-ver="1" data-backdrop="true" id="popupSiker">
                 <div class="modal-dialog">
@@ -325,7 +366,115 @@
             						document.getElementById('inputDate').valueAsDate = new Date();
                         			 });
         </script>
+        <script type="text/javascript">
+            // Client ID and API key from the Developer Console
+              var CLIENT_ID = '974719283469-iujfo4jbug72r3mgfeagf9ld0t683rr3.apps.googleusercontent.com';
 
+              // Array of API discovery doc URLs for APIs used by the quickstart
+              var DISCOVERY_DOCS = ["https://sheets.googleapis.com/$discovery/rest?version=v4"];
+
+              // Authorization scopes required by the API; multiple scopes can be
+              // included, separated by spaces.
+              var SCOPES = "https://www.googleapis.com/auth/spreadsheets.readonly";
+
+              var authorizeButton = document.getElementById('authorize-button');
+              var signoutButton = document.getElementById('signout-button');
+
+              /**
+               *  On load, called to load the auth2 library and API client library.
+               */
+              function handleClientLoad() {
+                gapi.load('client:auth2', initClient);
+              }
+
+              /**
+               *  Initializes the API client library and sets up sign-in state
+               *  listeners.
+               */
+              function initClient() {
+                gapi.client.init({
+                  discoveryDocs: DISCOVERY_DOCS,
+                  clientId: CLIENT_ID,
+                  scope: SCOPES
+                }).then(function () {
+                  // Listen for sign-in state changes.
+                  gapi.auth2.getAuthInstance().isSignedIn.listen(updateSigninStatus);
+
+                  // Handle the initial sign-in state.
+                  updateSigninStatus(gapi.auth2.getAuthInstance().isSignedIn.get());
+                  authorizeButton.onclick = handleAuthClick;
+                  signoutButton.onclick = handleSignoutClick;
+                });
+              }
+
+              /**
+               *  Called when the signed in status changes, to update the UI
+               *  appropriately. After a sign-in, the API is called.
+               */
+              function updateSigninStatus(isSignedIn) {
+                if (isSignedIn) {
+                  authorizeButton.style.display = 'none';
+                  signoutButton.style.display = 'block';
+                  listMajors();
+                } else {
+                  authorizeButton.style.display = 'block';
+                  signoutButton.style.display = 'none';
+                }
+              }
+
+              /**
+               *  Sign in the user upon button click.
+               */
+              function handleAuthClick(event) {
+                gapi.auth2.getAuthInstance().signIn();
+              }
+
+              /**
+               *  Sign out the user upon button click.
+               */
+              function handleSignoutClick(event) {
+                gapi.auth2.getAuthInstance().signOut();
+              }
+
+              /**
+               * Append a pre element to the body containing the given message
+               * as its text node. Used to display the results of the API call.
+               *
+               * @param {string} message Text to be placed in pre element.
+               */
+              function appendPre(message) {
+                var pre = document.getElementById('content');
+                var textContent = document.createTextNode(message + '\n');
+                pre.appendChild(textContent);
+              }
+
+              /**
+               * Print the names and majors of students in a sample spreadsheet:
+               * https://docs.google.com/spreadsheets/d/1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms/edit
+               */
+              function listMajors() {
+                gapi.client.sheets.spreadsheets.values.get({
+                  spreadsheetId: '1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms',
+                  range: 'Class Data!A2:E',
+                }).then(function(response) {
+                  var range = response.result;
+                  if (range.values.length > 0) {
+                    appendPre('Name, Major:');
+                    for (i = 0; i < range.values.length; i++) {
+                      var row = range.values[i];
+                      // Print columns A and E, which correspond to indices 0 and 4.
+                      appendPre(row[0] + ', ' + row[4]);
+                    }
+                  } else {
+                    appendPre('No data found.');
+                  }
+                }, function(response) {
+                  appendPre('Error: ' + response.result.error.message);
+                });
+              }
+        </script>
+        <script async="" defer="" src="https://apis.google.com/js/api.js" onload="this.onload=function(){};handleClientLoad()" onreadystatechange="if (this.readyState === 'complete') this.onload()">
+        </script>
     </body>
 
 </html>
