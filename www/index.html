@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html>
+    <!--
+  * Please see the included README.md file for license terms and conditions.
+  -->
+
+    <head>
+        <link rel="stylesheet" type="text/css" href="media_button_bar/css/media_button_bar.css">
+        <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css" class="uib-framework-theme">
+        <meta charset="UTF-8">
+        <title>Blank App Designer Cordova Web App Project Template</title>
+        <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+
+        <!--
+  * The "meta viewport" tag (below) helps your app size appropriately to a device's ideal viewport.
+  * Note that Windows device viewports work better when initialized using the @viewport CSS rule.
+  * For a quick overview of "meta viewport" and @viewport, see this article:
+  *   http://webdesign.tutsplus.com/tutorials/htmlcss-tutorials/quick-tip-dont-forget-the-viewport-meta-tag
+  * To see how it works, try your app on a real device with and without a "meta viewport" tag.
+  * Additional useful references include:
+  *   http://www.quirksmode.org/mobile/viewports.html
+  *   http://www.quirksmode.org/mobile/metaviewport/devices.html
+  *   https://developer.apple.com/library/safari/documentation/AppleApplications/Reference/SafariHTMLRef/Articles/MetaTags.html
+-->
+
+        <!-- <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1"> -->
+        <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=no">
+        <!-- <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes, minimum-scale=1, maximum-scale=2"> -->
+
+        <style>
+            /* following three (cascaded) are equivalent to above three meta viewport statements */
+            /* see http://www.quirksmode.org/blog/archives/2014/05/html5_dev_conf.html */
+            /* see http://dev.w3.org/csswg/css-device-adapt/ */
+                @-ms-viewport { width: 100vw ; min-zoom: 100% ; zoom: 100% ; }          @viewport { width: 100vw ; min-zoom: 100% zoom: 100% ; }
+                @-ms-viewport { user-zoom: fixed ; min-zoom: 100% ; }                   @viewport { user-zoom: fixed ; min-zoom: 100% ; }
+                /*@-ms-viewport { user-zoom: zoom ; min-zoom: 100% ; max-zoom: 200% ; }   @viewport { user-zoom: zoom ; min-zoom: 100% ; max-zoom: 200% ; }*/
+        </style>
+
+        <link rel="stylesheet" href="css/app.css">
+        <link rel="stylesheet" type="text/css" href="css/index_main.less.css" class="main-less">
+
+        <!-- IMPORTANT: Do not include a weinre script tag as part of your release builds! -->
+        <!-- Place your remote debugging (weinre) script URL from the Test tab here, if it does not work below -->
+        <!-- <script src="http://debug-software.intel.com/target/target-script-min.js#insertabiglongfunkynumberfromthexdkstesttab"></script> -->
+
+        <!-- Recommended location for your JavaScript libraries -->
+        <!-- These library references (below) are just examples to give you the general idea... -->
+        <!-- <script src="lib/mc/hammer.js"></script> -->
+        <!-- <script src="lib/ft/fastclick.js"></script> -->
+
+        <!--
+  * cordova.js is a phantom lib for "Cordova HTML5 web app," it does nothing in a "Standard HTML5 web app"
+  * Seeing a "Failed to load resource: net::ERR_FILE_NOT_FOUND" message caused by this "cordova.js" script?
+  * The cordova.js script is required if you convert your "Standard HTML5" project into a "Cordova" project.
+  * You can safely ignore the error or comment out this line if you will not be developing a Cordova app.
+-->
+        <script src="cordova.js" id="xdkJScordova_"></script>
+
+        <script src="js/app.js"></script>
+        <!-- for your event code, see README and file comments for details -->
+        <script src="js/init-app.js"></script>
+        <!-- for your init code, see README and file comments for details -->
+        <script src="xdk/init-dev.js"></script>
+        <!-- normalizes device and document ready events, see file for details -->
+        <script type="application/javascript" src="lib/jquery.min.js"></script>
+        <script type="application/javascript" src="marginal/marginal-position.min.js"></script>
+        <script type="application/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+        <script type="application/javascript" src="sidebar/js/hammer.js"></script>
+        <script type="application/javascript" src="sidebar/js/jquery.hammer.js"></script>
+        <script type="application/javascript" src="sidebar/js/swipe-hammer.js"></script>
+        <script type="application/javascript" src="sidebar/js/sidebar.js"></script>
+        <script type="application/javascript" src="js/index_user_scripts.js"></script>
+        <script type="application/javascript" src="xdk/ad/bs_subpage.js"></script>
+        <script>
+            // make sure cordova-plugin-file is added and should be tested on device
+
+
+            document.addEventListener("deviceready", function(){
+
+            }, false);
+
+
+            function writeFile(){
+                window.resolveLocalFileSystemURL(cordova.file.dataDirectory, function(dir){
+                        dir.getFile("edzesnaplo.csv", {create: true}, function(fileEntry){
+                            fileEntry.createWriter(function(fileWriter){
+                                fileWriter.seek(fileWriter.length);
+                                fileWriter.write( document.getElementById("inputDate").value + "|" + document.getElementById("inputType").value + "|" + document.getElementById("inputCompetition").value + "|" + document.getElementById("inputArrows").value + "|" + document.getElementById("inputScore").value + "|" + document.getElementById("inputGood").value + "|" +  document.getElementById("inputMiddle").value + "|" + document.getElementById("inputBad").value + "|" + document.getElementById("inputMenBefore").value + "|" +  document.getElementById("inputMenAfter").value + "|" + document.getElementById("inputFizBefore").value + "|" + document.getElementById("inputFizAfter").value + "|" +  document.getElementById("inputGoal").value + "|" + document.getElementById("inputGoalReached").value + "|" + document.getElementById("inputNotes").value + "|" +  document.getElementById("inputGeneral").value + "|" + document.getElementById("inputNextTraining").value + "\n");
+                                alert("Adatok mentve az edzesnaplo.csv file-ba.");
+                            }, function(error){
+                                alert("Error: " + error.code);
+                            });
+                        }, function(error){
+                            alert("Error: " + error.code);
+                        });
+                }, function(){
+                    alert("Error");
+                });
+            }
+
+            function readFile(){
+                window.resolveLocalFileSystemURL(cordova.file.dataDirectory, function(dir){
+                        dir.getFile("edzesnaplo.csv", {create: true}, function(fileEntry){
+                            fileEntry.file(function(file){
+                                var reader = new FileReader();
+                                reader.onloadend = function (evt) {
+                                    //alert("edzesnaplo.csv tartalma: " + evt.target.result);
+									document.getElementById("textareaEdzes").value = evt.target.result;
+                                };
+                                reader.readAsText(file);
+                            }, function(error){
+                                alert("Error: " + error.code);
+                            });
+                        }, function(error){
+                            alert("Error: " + error.code);
+                        });
+                }, function(){
+                    alert("Error");
+                });
+            }
+
+            function removeFile(){
+                window.resolveLocalFileSystemURL(cordova.file.dataDirectory, function(dir){
+                        dir.getFile("edzesnaplo.csv", {create: false}, function(fileEntry){
+                            fileEntry.remove(function(){
+                                alert("edzesnaplo.csv file törölve.");
+                            }, function(error){
+                                alert("Error: " + error.code);
+                            });
+                        }, function(error){
+                            alert("Error: " + error.code);
+                        });
+                }, function(){
+                    alert("Error");
+                });
+            }
+        </script>
+        <script type="application/javascript" src="xdk/appdesigner/js/rest-of-space.js"></script>
+    </head>
+
+    <body>
+        <!-- IMPORTANT: Do not include a weinre script tag as part of your release builds! -->
+        <!-- Place your remote debugging (weinre) script URL from the Test tab here, if it does not work above -->
+        <!-- <script src="http://debug-software.intel.com/target/target-script-min.js#insertabiglongfunkynumberfromthexdkstesttab"></script> -->
+        <div class="upage bg" id="mainpage">
+            <div class="upage-outer">
+                <div class="uib-header header-bg container-group inner-element uib_w_1 uib-header-fixed" data-uib="layout/header" data-ver="0">
+                    <h2>MISZ Edzésnapló</h2>
+                    <div class="widget-container wrapping-col single-centered">
+                        <div class="btn-group uib-bs-flex widget uib_w_13 d-margins" data-uib="twitter%20bootstrap/button_group" data-ver="1">
+                            <button class="btn widget uib_w_14 btn-default" data-uib="twitter%20bootstrap/button" data-ver="1" id="tabNew">Új Edzés</button>
+                            <button class="btn widget uib_w_15 btn-default" data-uib="twitter%20bootstrap/button" data-ver="1" id="tabList">Lista</button>
+                            <button class="btn widget uib_w_16 btn-default" data-uib="twitter%20bootstrap/button" data-ver="1" id="tabSettings">Beállítások</button>
+                        </div>
+                    </div>
+                    <div class="widget-container content-area horiz-area wrapping-col left"></div>
+                    <div class="widget-container content-area horiz-area wrapping-col right"></div>
+                </div>
+                <div class="upage-content ac0 content-area vertical-col" id="page_73_13">
+                    <div class="tarea widget uib_w_45 d-margins" data-uib="media/text" data-ver="0" name="uib_w_45">
+                        <div class="widget-container left-receptacle"></div>
+                        <div class="widget-container right-receptacle"></div>
+                        <div class="text-container"><pre><strong>Edzés adatok</strong></pre>
+                        </div>
+                    </div>
+
+                    <div class="table-thing widget uib_w_7 d-margins align-label" data-uib="twitter%20bootstrap/input" data-ver="1">
+                        <label class="narrow-control label-inline" for="inputDate">Dátum</label>
+                        <input class="wide-control form-control default" type="date" id="inputDate">
+                    </div>
+                    <div class="table-thing widget uib_w_6 d-margins align-label" data-uib="twitter%20bootstrap/select" data-ver="1">
+                        <label class="narrow-control label-inline">Típus</label>
+                        <select class="wide-control form-control default" id="inputType">
+                            <option>Lövés</option>
+                            <option>Erősítés</option>
+                            <option>Futás</option>
+                            <option>Jóga</option>
+                            <option>Kerékpár</option>
+                            <option>Úszás</option>
+                        </select>
+                    </div>
+                    <div class="table-thing widget uib_w_8 d-margins align-label" data-uib="twitter%20bootstrap/input" data-ver="1">
+                        <label class="narrow-control label-inline" for="inputCompetition">Verseny</label>
+                        <input class="wide-control form-control default" type="text" id="inputCompetition">
+                    </div>
+                    <div class="table-thing widget uib_w_9 d-margins align-label" data-uib="twitter%20bootstrap/input" data-ver="1">
+                        <label class="narrow-control label-inline" for="inputArrows">Lövésszám</label>
+                        <input class="wide-control form-control default" type="text" id="inputArrows">
+                    </div>
+
+                    <div class="table-thing widget uib_w_10 d-margins align-label" data-uib="twitter%20bootstrap/input" data-ver="1">
+                        <label class="narrow-control label-inline" for="inputScore">Pontszám</label>
+                        <input class="wide-control form-control default" type="text" id="inputScore">
+                    </div>
+                    <div class="tarea widget uib_w_31 d-margins" data-uib="media/text" data-ver="0" name="uib_w_31">
+                        <div class="widget-container left-receptacle"></div>
+                        <div class="widget-container right-receptacle"></div>
+                        <div class="text-container"><pre><strong>Lövés végrehajtás:</strong></pre>
+                        </div>
+                    </div>
+                    <div class="table-thing widget uib_w_30 d-margins align-label" data-uib="twitter%20bootstrap/input" data-ver="1">
+                        <label class="narrow-control label-inline" for="inputGood">Jó</label>
+                        <input class="wide-control form-control default" type="text" id="inputGood">
+                    </div>
+                    <div class="table-thing widget uib_w_32 d-margins align-label" data-uib="twitter%20bootstrap/input" data-ver="1">
+                        <label class="narrow-control label-inline" for="inputMiddle">Közepes</label>
+                        <input class="wide-control form-control default" type="text" id="inputMiddle">
+                    </div>
+                    <div class="table-thing widget uib_w_33 d-margins align-label" data-uib="twitter%20bootstrap/input" data-ver="1">
+                        <label class="narrow-control label-inline" for="inputBad">Rossz</label>
+                        <input class="wide-control form-control default" type="text" id="inputBad">
+                    </div>
+                    <div class="tarea widget uib_w_34 d-margins" data-uib="media/text" data-ver="0" name="uib_w_34">
+                        <div class="widget-container left-receptacle"></div>
+                        <div class="widget-container right-receptacle"></div>
+                        <div class="text-container"><pre><strong>Mentális állapot:</strong></pre>
+                        </div>
+                    </div>
+                    <div class="table-thing widget uib_w_35 d-margins align-label" data-uib="twitter%20bootstrap/input" data-ver="1">
+                        <label class="narrow-control label-inline" for="inputMenBefore">Előtte</label>
+                        <input class="wide-control form-control default" type="text" id="inputMenBefore">
+                    </div>
+                    <div class="table-thing widget uib_w_37 d-margins align-label" data-uib="twitter%20bootstrap/input" data-ver="1">
+                        <label class="narrow-control label-inline" for="inputMenAfter">Utána</label>
+                        <input class="wide-control form-control default" type="text" id="inputMenAfter">
+                    </div>
+                    <div class="tarea widget uib_w_36 d-margins" data-uib="media/text" data-ver="0" name="uib_w_36">
+                        <div class="widget-container left-receptacle"></div>
+                        <div class="widget-container right-receptacle"></div>
+                        <div class="text-container"><pre><strong>Fizikai állapot:</strong></pre>
+                        </div>
+                    </div>
+                    <div class="table-thing widget uib_w_38 d-margins align-label" data-uib="twitter%20bootstrap/input" data-ver="1">
+                        <label class="narrow-control label-inline" for="inputFizBefore">Előtte</label>
+                        <input class="wide-control form-control default" type="text" id="inputFizBefore">
+                    </div>
+                    <div class="table-thing widget uib_w_39 d-margins align-label" data-uib="twitter%20bootstrap/input" data-ver="1">
+                        <label class="narrow-control label-inline" for="inputFizAfter">Utána</label>
+                        <input class="wide-control form-control default" type="text" id="inputFizAfter">
+                    </div>
+                    <div class="tarea widget uib_w_46 d-margins" data-uib="media/text" data-ver="0" name="uib_w_46">
+                        <div class="widget-container left-receptacle"></div>
+                        <div class="widget-container right-receptacle"></div>
+                        <div class="text-container"><pre><strong>Célok, észrevételek, feladatok</strong></pre>
+                        </div>
+                    </div>
+                    <div class="table-thing widget uib_w_40 d-margins align-label" data-uib="twitter%20bootstrap/input" data-ver="1">
+                        <label class="narrow-control label-inline" for="inputGoal">Cél</label>
+                        <input class="wide-control form-control default" type="text" id="inputGoal">
+                    </div>
+                    <div class="table-thing widget uib_w_41 d-margins align-label" data-uib="twitter%20bootstrap/input" data-ver="1">
+                        <label class="narrow-control label-inline" for="inputGoalReached">Cél elérve?</label>
+                        <input class="wide-control form-control default" type="text" id="inputGoalReached">
+                    </div>
+                    <div class="table-thing widget uib_w_42 d-margins align-label" data-uib="twitter%20bootstrap/text_area" data-ver="1">
+                        <label class="narrow-control label-inline">Jegyzet</label>
+                        <textarea rows="2" class="wide-control form-control" wrap="soft" id="inputNotes"></textarea>
+                    </div>
+                    <div class="table-thing widget uib_w_43 d-margins align-label" data-uib="twitter%20bootstrap/text_area" data-ver="1">
+                        <label class="narrow-control label-inline">Általános észrevétel</label>
+                        <textarea rows="2" class="wide-control form-control" wrap="soft" id="inputGeneral"></textarea>
+                    </div>
+                    <div class="table-thing widget uib_w_44 d-margins align-label" data-uib="twitter%20bootstrap/text_area" data-ver="1">
+                        <label class="narrow-control label-inline">Feladat köv. edzésre</label>
+                        <textarea rows="2" class="wide-control form-control" wrap="soft" id="inputNextTraining"></textarea>
+                    </div>
+
+                    <div class="btn-group uib-bs-flex widget uib_w_23 d-margins" data-uib="twitter%20bootstrap/button_group" data-ver="1">
+                        <button onclick="writeFile()" class="btn widget uib_w_24 align-button btn-default" data-uib="twitter%20bootstrap/button" data-ver="1" id="buttonSave"><i class="glyphicon glyphicon-ok button-icon-left" data-position="left"></i>Mentés</button>
+                        <button class="btn widget uib_w_25 align-button btn-default" data-uib="twitter%20bootstrap/button" data-ver="1" id="buttonSync"><i class="glyphicon glyphicon-refresh button-icon-left" data-position="left"></i>Szinkronizálás</button>
+                    </div>
+                    <div class="btn-group uib-bs-flex widget uib_w_26 d-margins" data-uib="twitter%20bootstrap/button_group" data-ver="1">
+                        <button class="btn widget uib_w_27 align-button btn-default d-margins" data-uib="twitter%20bootstrap/button" data-ver="1" id="buttonShare"><i class="glyphicon glyphicon-share-alt button-icon-left" data-position="left"></i>Megosztás</button>
+                        <button class="btn widget uib_w_28 align-button btn-default d-margins" data-uib="twitter%20bootstrap/button" data-ver="1" id="buttonExit"><i class="glyphicon glyphicon-off button-icon-left" data-position="left"></i>Kilépés</button>
+                    </div>
+
+                </div>
+
+                <div id="new" class="upage-content vertical-col left hidden">
+                    <div class="tarea widget uib_w_17 d-margins" data-uib="media/text" data-ver="0" name="uib_w_17">
+                        <div class="widget-container left-receptacle"></div>
+                        <div class="widget-container right-receptacle"></div>
+                        <div class="text-container"><pre><strong>Korábbi edzések listája:</strong></pre>
+                        </div>
+                    </div>
+                    <button onclick="readFile()" class="btn widget uib_w_47 d-margins btn-default" data-uib="twitter%20bootstrap/button" data-ver="1" id="buttonReadme"><i class="glyphicon glyphicon-pencil button-icon-left" data-position="left"></i>edzesnaplo.csv beolvasása</button>
+
+                    <div class="table-thing widget uib_w_50 d-margins" data-uib="twitter%20bootstrap/text_area" data-ver="1">
+                        <label class="narrow-control"></label>
+                        <textarea rows="12" class="wide-control form-control" wrap="soft" id="textareaEdzes"></textarea>
+                    </div>
+                </div>
+                <div id="settings" class="upage-content vertical-col left hidden">
+                    <div class="tarea widget uib_w_18 d-margins" data-uib="media/text" data-ver="0" name="uib_w_18">
+                        <div class="widget-container left-receptacle"></div>
+                        <div class="widget-container right-receptacle"></div>
+                        <div class="text-container">
+                            <p>Szinkronizálási és egyéb beállítások:</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal outer-element uib_w_29" data-uib="twitter%20bootstrap/modal" data-ver="1" data-backdrop="true" id="popupSiker">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button class="close" data-dismiss="modal">x</button>
+                            <h4 class="modal-title">Sikres mentés!</h4>
+                        </div>
+
+                        <div class="modal-body">
+                            <div class="col uib_col_1 single-col" data-uib="layout/col" data-ver="0">
+                                <div class="widget-container content-area vertical-col">
+                                    <span class="uib_shim"></span>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript">
+            $(document).ready(function() {
+            						document.getElementById('inputDate').valueAsDate = new Date();
+                        			 });
+        </script>
+
+    </body>
+
+</html>
