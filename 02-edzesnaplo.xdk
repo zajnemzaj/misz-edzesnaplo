@@ -6,7 +6,7 @@
       "projectTypeName": "com.intel.xdk.projecttype.jsapp",
       "src": "jsapp/template-blank-cordova-ad-project/sample.zip",
       "projectGuid": "4f660239-6373-46ab-af94-5551781b03e7",
-      "lastModifiedDate": 1488397331086,
+      "lastModifiedDate": 1488490594685,
       "creationDate": 1488278311423
     },
     "XDK-app-designer": "true",
@@ -76,7 +76,8 @@
         "gitref": "",
         "name": "Splashscreen",
         "description": "Cordova Splashscreen Plugin",
-        "checksum": "47137083"
+        "checksum": "47137083",
+        "cordovaVersion": ">=3.1.0"
       },
       {
         "id": "cordova-plugin-compat",
@@ -95,7 +96,8 @@
         "description": "Cordova Compatibility Plugin",
         "data": {},
         "dependedBy": [
-          "cordova-plugin-file"
+          "cordova-plugin-file",
+          "cordova-plugin-camera"
         ],
         "custom": "true"
       },
@@ -148,6 +150,71 @@
         "description": "Cordova File Transfer Plugin",
         "data": {},
         "dependedBy": []
+      },
+      {
+        "id": "cordova-plugin-inappbrowser",
+        "name": "InAppBrowser",
+        "version": "1.4.0",
+        "originType": "cordova.io",
+        "origin": "cordova-plugin-inappbrowser",
+        "gitref": "",
+        "paramvals": {},
+        "sourceLocation": "plugins/cordova-plugin-inappbrowser",
+        "selectedState": "Included",
+        "checksum": "f88bc51f",
+        "dependsOn": [],
+        "topLevel": true,
+        "cordovaVersion": ">=3.1.0",
+        "permissions": {},
+        "description": "Cordova InAppBrowser Plugin",
+        "data": {},
+        "dependedBy": []
+      },
+      {
+        "id": "cordova-plugin-camera",
+        "name": "Camera",
+        "version": "2.3.0",
+        "originType": "cordova.io",
+        "origin": "cordova-plugin-camera",
+        "gitref": "",
+        "paramvals": {
+          "CAMERA_USAGE_DESCRIPTION": " ",
+          "PHOTOLIBRARY_USAGE_DESCRIPTION": " "
+        },
+        "sourceLocation": "plugins/cordova-plugin-camera",
+        "selectedState": "Included",
+        "checksum": "42288131",
+        "dependsOn": [
+          "cordova-plugin-compat"
+        ],
+        "topLevel": true,
+        "permissions": {
+          "android:name": [
+            "android.permission.WRITE_EXTERNAL_STORAGE"
+          ]
+        },
+        "description": "Cordova Camera Plugin",
+        "data": {},
+        "dependedBy": []
+      },
+      {
+        "id": "com-intel-security-cordova-plugin",
+        "name": "APP Security API",
+        "version": "2.0.3",
+        "originType": "cordova.io",
+        "origin": "com-intel-security-cordova-plugin",
+        "gitref": "",
+        "paramvals": {},
+        "sourceLocation": "plugins/com-intel-security-cordova-plugin",
+        "selectedState": "Included",
+        "checksum": "e657a560",
+        "dependsOn": [],
+        "topLevel": true,
+        "permissions": {},
+        "description": "App Security API plugin",
+        "data": {},
+        "dependedBy": [],
+        "custom": "true"
       }
     ],
     "buildConfigurations": {
@@ -303,8 +370,8 @@
         },
         "isActive_": true,
         "certificateId_": "",
-        "appName_": "02-edzesnaplo",
-        "appID_": "xdk.intel.blank.ad.template",
+        "appName_": "MISZ Edzésnapló",
+        "appID_": "com.misz.edzesnaplo",
         "appAccess_": {
           "mode": "whitelist",
           "network": [
@@ -320,9 +387,9 @@
         "excludedLibraries_": "",
         "cordovaCLIVersion_": "6.2.0",
         "crosswalkVersion_": "19",
-        "appVersion_": "0.0.0.1",
-        "appAuthor_": "Intel XDK",
-        "appDescription_": "Template to develop a Cordova mobile web app using the App Designer UI editor."
+        "appVersion_": "0.0.1",
+        "appAuthor_": "Dezső János",
+        "appDescription_": "MISZ edzésnapló a válogatott kerettagok számara"
       },
       "WebApp": {
         "platform_": "webapp",

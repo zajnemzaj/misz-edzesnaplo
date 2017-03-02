@@ -1,0 +1,38 @@
+{
+  "name": "gdrive-sync-js",
+  "description": "Save, load and list files with Google Drive API Javascript v3",
+  "main": "index.js",
+  "authors": [
+    "vitomd"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "google",
+    "drive",
+    "api",
+    "v3",
+    "Javascript",
+    "google",
+    "drive",
+    "api"
+  ],
+  "homepage": "https://github.com/vitogit/gDriveSync.js",
+  "ignore": [
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests",
+    "demo"
+  ],
+  "version": "0.3.3",
+  "_release": "0.3.3",
+  "_resolution": {
+    "type": "version",
+    "tag": "v0.3.3",
+    "commit": "c27743846c2ee045c724ca4ff04ae6f662612910"
+  },
+  "_source": "https://github.com/vitogit/gDriveSync.js.git",
+  "_target": "0.3.3",
+  "_originalSource": "gdrive-sync-js",
+  "_direct": true
+}
